@@ -1,17 +1,14 @@
-package com.example.machinelearningapp
+package com.example.machinelearningapp.helper
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.RectF
 import android.util.Log
+import org.tensorflow.lite.DataType
 import org.tensorflow.lite.Interpreter
-import org.tensorflow.lite.support.image.ImageProcessor
-import org.tensorflow.lite.support.image.TensorImage
-import org.tensorflow.lite.support.image.ops.ResizeOp
 import java.io.File
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import kotlin.math.*
 
 class TensorFlowFaceDetector(private val context: Context) {
 
@@ -108,7 +105,7 @@ class TensorFlowFaceDetector(private val context: Context) {
             val inputDataType = inputTensor?.dataType()
             Log.d("TensorFlowFaceDetector", "Input data type: $inputDataType")
 
-            val inputBuffer = if (inputDataType == org.tensorflow.lite.DataType.UINT8) {
+            val inputBuffer = if (inputDataType == DataType.UINT8) {
                 ByteBuffer.allocateDirect(actualInputSize * actualInputSize * 3)
             } else {
                 ByteBuffer.allocateDirect(actualInputSize * actualInputSize * 3 * 4)
@@ -124,7 +121,7 @@ class TensorFlowFaceDetector(private val context: Context) {
                     val g = (pixel shr 8) and 0xFF
                     val b = pixel and 0xFF
 
-                    if (inputDataType == org.tensorflow.lite.DataType.UINT8) {
+                    if (inputDataType == DataType.UINT8) {
                         inputBuffer.put(r.toByte())
                         inputBuffer.put(g.toByte())
                         inputBuffer.put(b.toByte())
@@ -164,7 +161,7 @@ class TensorFlowFaceDetector(private val context: Context) {
             Log.d("TensorFlowFaceDetector", "Output data type: $outputDataType")
 
             val inferenceStartTime = System.nanoTime()
-            val outputArray = if (outputDataType == org.tensorflow.lite.DataType.UINT8) {
+            val outputArray = if (outputDataType == DataType.UINT8) {
                 val uint8Array = Array(outputShape[0]) { ByteArray(outputShape[1]) }
                 interpreter.run(inputBuffer, uint8Array)
 
@@ -472,7 +469,7 @@ class TensorFlowFaceDetector(private val context: Context) {
             Log.d("TensorFlowFaceDetector", "🧪 Test model input shape: ${inputShape.contentToString()}")
             Log.d("TensorFlowFaceDetector", "🧪 Test using input size: $actualInputSize, data type: $inputDataType")
 
-            val testInput = if (inputDataType == org.tensorflow.lite.DataType.UINT8) {
+            val testInput = if (inputDataType == DataType.UINT8) {
                 ByteBuffer.allocateDirect(actualInputSize * actualInputSize * 3)
             } else {
                 ByteBuffer.allocateDirect(actualInputSize * actualInputSize * 3 * 4)
@@ -481,7 +478,7 @@ class TensorFlowFaceDetector(private val context: Context) {
             testInput.order(ByteOrder.nativeOrder())
 
             for (i in 0 until actualInputSize * actualInputSize * 3) {
-                if (inputDataType == org.tensorflow.lite.DataType.UINT8) {
+                if (inputDataType == DataType.UINT8) {
                     testInput.put((Math.random() * 255).toInt().toByte())
                 } else {
                     testInput.putFloat((Math.random()).toFloat())
@@ -495,7 +492,7 @@ class TensorFlowFaceDetector(private val context: Context) {
 
             Log.d("TensorFlowFaceDetector", "🧪 Test output shape: ${outputShape.contentToString()}")
 
-            if (outputDataType == org.tensorflow.lite.DataType.UINT8) {
+            if (outputDataType == DataType.UINT8) {
                 val uint8Array = Array(outputShape[0]) { ByteArray(outputShape[1]) }
                 interpreter!!.run(testInput, uint8Array)
                 Log.d("TensorFlowFaceDetector", "✅ Model test successful (UINT8 output)")

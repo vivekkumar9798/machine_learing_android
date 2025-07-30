@@ -24,6 +24,9 @@ import com.google.mlkit.vision.face.FaceDetectorOptions
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import androidx.camera.core.ImageProxy
+import com.example.machinelearningapp.helper.EmotionDetector
+import com.example.machinelearningapp.helper.PerformanceMonitor
+import com.example.machinelearningapp.helper.TensorFlowFaceDetector
 
 class FaceDetectionActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFaceDetectionBinding
