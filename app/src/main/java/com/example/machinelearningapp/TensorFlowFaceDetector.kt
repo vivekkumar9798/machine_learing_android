@@ -18,6 +18,7 @@ class TensorFlowFaceDetector(private val context: Context) {
     private var interpreter: Interpreter? = null
     private val modelFile = "efficientnet-lite0.tflite"
     private val inputSize = 224
+    private val hi=""
     private var useMockDetection = false
 
     // Performance monitoring variables
