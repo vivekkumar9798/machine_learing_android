@@ -1,171 +1,152 @@
-#Face Recognition Android App
+# **Face Recognition Android App**
 
-This is an Android application that uses both TensorFlow Lite and ML Kit for real-time face detection.
+This is an Android application that uses both **TensorFlow Lite** and **ML Kit** for real-time face detection.
 
-#Features
+---
 
-Dual Face Detection: Supports both TensorFlow Lite and ML Kit
+## 🚀 **Features**
 
-Real-time Face Detection: Detects faces from live video feed using the camera
+- ✅ **Dual Face Detection**: Supports both TensorFlow Lite and ML Kit  
+- 🎥 **Real-time Face Detection**: Detects faces from live video feed using the camera  
+- 😊 **Face Analysis**: Smile probability, eye openness, and head rotation angles  
+- 🤳 **Front Camera Support**: Utilizes the selfie camera  
+- 🔒 **Permission Handling**: Proper camera permission management  
+- 🔄 **Easy Switching**: Toggle between TensorFlow Lite and ML Kit with a single button  
 
-Face Analysis: Provides smile probability, eye openness, and head rotation angles
+---
 
-Front Camera Support: Utilizes the selfie camera
+## 📹 Demo Video
 
-Permission Handling: Proper management of camera permissions
+[![Watch the demo](https://img.youtube.com/vi/SmWNt5jdyT8/0.jpg)](https://www.youtube.com/watch?v=SmWNt5jdyT8)
 
-Easy Switching: Toggle between TensorFlow and ML Kit with a button
+---
 
-##Setup Instructions
+## 🛠️ **Setup Instructions**
 
-#Prerequisites
+### ✅ **Prerequisites**
 
-Android Studio Arctic Fox or higher
+- Android Studio **Arctic Fox** or newer  
+- Android SDK **version 24 or higher**  
+- **Physical Android device** (Camera doesn’t work on emulator)
 
-Android SDK version 24 or above
+---
 
-A physical Android device (camera does not work on emulator)
+### 📥 **Installation Steps**
 
-#Installation Steps
+1. **Clone or download** the project  
+2. Open the project in **Android Studio**  
+3. **Sync dependencies**:  
+   - `File → Sync Project with Gradle Files`  
+   - or press the **Gradle sync button**  
+4. **Run the app** on your device:  
+   - `Run → Run 'app'`  
+   - or click the green ▶️ play button  
 
-Clone or download the project
+---
 
-Open the project in Android Studio
+### 🔓 **First-Time Setup**
 
-Sync project dependencies
+When the app runs for the first time:
 
-Click on File → Sync Project with Gradle Files
+1. App will **ask for camera permission** → Tap **“Allow”**  
+2. Tap **“Start Face Detection”**  
+3. You will see the **front camera preview**  
+4. Face analysis results will appear at the **top-left** of the screen  
 
-Or press the Gradle sync button
+---
 
-Run the app on your device
+## 📲 **How to Use**
 
-Click on Run → Run 'app'
+1. **Launch the app** and grant camera permission  
+2. The **front camera feed** will be shown  
+3. **Hold your face** in front of the camera  
+4. The app will display:  
+   - 😄 **Smile Probability (%)**  
+   - 👁️ **Left Eye Openness (%)**  
+   - 👁️ **Right Eye Openness (%)**  
+   - 🔄 **Head Rotation Angles (Y and Z axes)**  
 
-Or press the green play button
+---
 
-First-Time Setup
+## ⚙️ **Technical Details**
 
-When you launch the app for the first time:
+### 🧩 **Dependencies Used**
 
-Camera Permission: The app will request camera permission. Tap “Allow”
+- **ML Kit Face Detection**: Google’s official face detection library  
+- **CameraX**: Modern Android camera API  
+- **Kotlin**: Programming language  
+- **AndroidX**: Modern Android libraries  
 
-Start Detection: Press the “Start Face Detection” button
+### 📂 **Key Components**
 
-Camera Preview: The front camera preview will appear
+- `MainActivity.kt` – Contains face detection logic  
+- `activity_main.xml` – UI layout with camera preview  
+- `AndroidManifest.xml` – Declares permissions  
+- `build.gradle.kts` – Manages dependencies  
 
-Face Analysis: Face analysis information will be displayed at the top-left corner
+### 🤖 **Face Detection Features**
 
-How to Use
-Launch the App: Grant camera permission when prompted
+- **Smile Detection** – Calculates smile probability  
+- **Eye Tracking** – Detects openness of each eye  
+- **Head Pose Estimation** – Tracks head rotation angles (Y, Z)  
+- **Real-time Processing** – Analyzes camera feed live  
 
-Live Preview: The front camera feed will be shown
+---
 
-Face Detection: Hold your face in front of the camera
+## 🧪 **Troubleshooting**
 
-Real-time Analysis: The app will display:
+### 🛑 **Common Issues**
 
-Smile Probability (%)
+1. **Camera Permission Denied**  
+   - Go to: `Settings → Apps → [Your App] → Permissions → Camera → Allow`
 
-Left Eye Openness (%)
+2. **App Crashes on Launch**  
+   - Make sure the device has a **front camera**  
+   - Ensure Android version is **7.0 (API 24)** or higher  
 
-Right Eye Openness (%)
+3. **Face Detection Not Working**  
+   - Ensure **good lighting**  
+   - Make sure face is clearly visible  
+   - Ensure the camera is **not blocked**  
 
-Head Rotation Angles (Y and Z axes)
+4. **Build Errors**  
+   - **Clean and rebuild** the project  
+   - Sync Gradle files  
+   - Check **internet connection** for dependency downloads  
 
-##Technical Details
+---
 
-#Dependencies Used
+### 💡 **Performance Tips**
 
-ML Kit Face Detection: Google's official face detection library
+- 💡 Ensure **good lighting** for better accuracy  
+- 🤳 Keep your device **steady**  
+- 👀 Ensure your **face is visible and not covered**  
+- 📏 Maintain a **reasonable distance** from the camera  
 
-CameraX: Modern Android camera API
+---
 
-Kotlin: Programming language
+## 🔮 **Future Enhancements**
 
-AndroidX: Modern Android libraries
+- Face recognition (identify specific people)  
+- Emotion detection  
+- Age and gender estimation  
+- Face filters and effects  
+- Multi-face detection  
+- Face landmark visualization  
 
-#Key Components
+---
 
-MainActivity.kt: Main activity containing the face detection logic
+## 🆘 **Support**
 
-activity_main.xml: UI layout with camera preview
+If you face any issues:
 
-AndroidManifest.xml: Declares permissions
+1. Check **Logcat** in Android Studio  
+2. Verify **device compatibility**  
+3. Confirm all **permissions are granted**  
+4. Try **restarting the app**
 
-build.gradle.kts: Dependency configurations
+---
 
-Face Detection Features
-Smile Detection: Detects and shows smile probability
+> **Note**: This app uses **ML Kit**, Google’s official machine learning library. An **internet connection** may be required during the first-time setup.
 
-Eye Tracking: Detects openness of both eyes
-
-Head Pose Estimation: Tracks head rotation along Y and Z axes
-
-Real-time Processing: Live analysis of video feed from the camera
-
-#Troubleshooting
-
-Common Issues
-
-Camera Permission Denied
-
-Go to: Settings → Apps → Your App → Permissions → Camera → Allow
-
-App Crashes on Launch
-
-Ensure your device has a front camera
-
-Make sure Android version is 7.0 (API 24) or above
-
-Face Detection Not Working
-
-Ensure good lighting conditions
-
-Make sure your face is clearly visible
-
-Ensure the camera lens is not blocked
-
-Build Errors
-
-Clean and rebuild the project
-
-Sync Gradle files
-
-Check your internet connection for dependency resolution
-
-Performance Tips
-Good Lighting: Improves detection accuracy
-
-Steady Device: Hold your device steady for better results
-
-Clear View of Face: Avoid face coverings or obstructions
-
-Optimal Distance: Maintain a reasonable distance from the camera
-
-Future Enhancements
-Face recognition (identify known individuals)
-
-Emotion detection
-
-Age and gender estimation
-
-Fun filters and effects
-
-Multi-face detection
-
-Face landmark visualization
-
-##Support
-
-If you encounter any issues:
-
-Check logs in Android Studio (Logcat)
-
-Verify device compatibility
-
-Ensure all permissions are granted
-
-Restart the app
-
-Note: This app uses ML Kit, Google’s official machine learning library. An internet connection may be required during the first-time setup.
+---
